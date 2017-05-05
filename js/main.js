@@ -3,6 +3,13 @@
     $("a.login-link, a.register-link, a.reset-password-link").on("click", initAjaxLinks);
     $("#modal-wrapper").on("click", "a.login-link, a.register-link, a.reset-password-link", initAjaxLinks);
     
+    $('#login').click(function(){
+        $('#loginModal').modal('show');
+    });
+    $('#loginModal').on('shown.bs.modal', function () {
+        $('#username').focus();
+    });
+    
     $("#modal-wrapper").on("submit", "form#login-form", function(e){
       e.preventDefault();
       var $url = $(this).attr("action");
@@ -113,5 +120,6 @@
       });
     });
   }
+  
   
 })(jQuery);
